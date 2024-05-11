@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { useDispatch } from "react-redux";
 import authService from "./appwrite/auth";
-import { login, logut } from "./store/authSlice.js";
+import { login, logout } from "./store/authSlice.js";
 import { Footer, Head } from "./components";
 import { Outlet } from "react-router-dom";
 
@@ -17,7 +17,7 @@ function App() {
         if (userData) {
           dispatch(login({ userData }));
         } else {
-          dispatch(logut());
+          dispatch(logout());
         }
       })
       .catch((error) => {
