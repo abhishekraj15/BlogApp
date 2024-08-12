@@ -1,11 +1,12 @@
 import React from "react";
 import { Container, Logo, LogoutBtn } from "../index";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const Head = () => {
+function Header() {
   const authStatus = useSelector((state) => state.auth.status);
-  const useNavigate = useNavigate();
+  const navigate = useNavigate();
 
   const navItems = [
     {
@@ -67,6 +68,6 @@ const Head = () => {
       </Container>
     </header>
   );
-};
+}
 
-export default Head;
+export default Header;

@@ -3,8 +3,10 @@ import "./App.css";
 import { useDispatch } from "react-redux";
 import authService from "./appwrite/auth";
 import { login, logout } from "./store/authSlice.js";
-import { Footer, Head } from "./components";
+
 import { Outlet } from "react-router-dom";
+import { Header } from "./components/index.js";
+import { Footer } from "./components/index.js";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -20,9 +22,9 @@ function App() {
           dispatch(logout());
         }
       })
-      .catch((error) => {
-        console.log("Error", error);
-      })
+      // .catch((error) => {
+      //   console.log("Error", error);
+      // })
       .finally(() => {
         setLoading(false);
       });
@@ -31,9 +33,9 @@ function App() {
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
       <div className="w-full block">
-        <Head />
+        <Header />
         <main>
-          TODO: {/* <Outlet /> */}
+          <Outlet />
         </main>
         <Footer />
       </div>
